@@ -1,0 +1,6 @@
+[submodule "uboot_palm"]
+	path = uboot_palm
+	url = https://github.com/toxxin/uboot_palm
+[submodule "kernel_palm"]
+	path = kernel_palm
+	url = https://github.com/toxxin/kernel_palm
