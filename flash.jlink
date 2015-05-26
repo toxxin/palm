@@ -1,0 +1,37 @@
+r
+h
+exec device = AM3517
+speed 8000
+
+/*
+ * Some real magic happend here. ROM bootloader has to set up R0 register
+ * as a pointer to the booting parameter structure that containts some information
+ * about booting. For more information refer to the MCU AM3517 reference manual 
+ * 24.4.8.4 Image Execution. General information about booting process can be found
+ * in the Chapter 24 Application Processor Initialization.
+ */
+wreg R0, 0x4020fe9c
+
+/* w4 0x4020fe9c, 0x00000000 */
+w4 0x4020fea0, 0x03030004
+/* w4 0x4020fea4, 0x40200b00 */
+/* w4 0x4020fea8, 0x00802040 */
+w4 0x4020fea8, 0x00082040
+
+regs
+loadbin ./uboot_palm/spl/u-boot-spl.bin 0x40200800
+/*verifybin ./uboot_palm/spl/u-boot-spl.bin 0x40200800*/
+SetPC 0x40200800
+regs
+g
+sleep 1000
+h
+
+mem32 0x4020fe9c, 4
+
+loadbin ./uboot_palm/u-boot.bin 0x80100000
+/*verifybin ./uboot_palm/u-boot.bin 0x80100000*/
+SetPC 0x80100000
+regs
+g
+q
