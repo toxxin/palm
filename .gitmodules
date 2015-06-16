@@ -4,3 +4,6 @@
 [submodule "kernel_palm"]
 	path = kernel_palm
 	url = ssh://github.com/toxxin/kernel_palm
+[submodule "rootfs_palm"]
+	path = rootfs_palm
+	url = https://github.com/toxxin/rootfs_palm
