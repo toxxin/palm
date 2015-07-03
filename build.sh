@@ -32,9 +32,18 @@ cd ..
 #
 # Build Linux kernel and make uImage
 #
+if [ "$1" = "evm" ]; then
+	echo "############# Evm board! ##############"
+	DTB=am3517_evm.dtb
+else
+	echo "########### Default board! ############"
+	DTB=nmv.dtb
+fi
+
+
 cd ${KERNEL_SOURCE_PATH}
 make -j8 && \
-cat ./arch/arm/boot/zImage ./arch/arm/boot/dts/nmv.dtb > zImage-with-dtb && \
+cat ./arch/arm/boot/zImage ./arch/arm/boot/dts/${DTB} > zImage-with-dtb && \
 mkimage -A arm -O linux -T kernel -C none -a ${LOADADDR} -e ${LOADADDR} -d zImage-with-dtb ${TFTP_PATH}uImage
 
 #
