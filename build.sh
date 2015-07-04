@@ -34,7 +34,7 @@ cd ..
 #
 if [ "$1" = "evm" ]; then
 	echo "############# Evm board! ##############"
-	DTB=am3517_evm.dtb
+	DTB=am3517-evm.dtb
 else
 	echo "########### Default board! ############"
 	DTB=nmv.dtb
