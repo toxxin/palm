@@ -12,14 +12,14 @@ echo DISK SIZE - $SIZE bytes
 
 CYLINDERS=`echo $SIZE/255/63/512 | bc`
 
-sfdisk -D -H 255 -S 63 -C 121 $DRIVE << EOF
+sfdisk -D -H 255 -S 63 -C ${CYLINDERS} $DRIVE << EOF
 ,9,0x0C,*
 10,111,,-
 126,,,-
 EOF
 
-#mkfs.vfat -F 32 -n "boot" ${DRIVE}1
-#umount ${DRIVE}1
-#mkfs.ext3 -L "rootfs" ${DRIVE}2
-#umount ${DRIVE}2
-#mkfs.ext3 -L "START_HERE" ${DRIVE}3
+mkfs.vfat -F 32 -n "boot" ${DRIVE}1
+umount ${DRIVE}1
+mkfs.ext3 -L "rootfs" ${DRIVE}2
+umount ${DRIVE}2
+mkfs.ext3 -L "START_HERE" ${DRIVE}3
