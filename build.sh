@@ -30,6 +30,14 @@ fi
 cd ..
 
 #
+# Check tools
+#
+if [ ! -f ./uboot_palm/tools/mkimage ]; then
+	echo "Mkimage tool not found. Seems u-boot wasn't built."
+	exit 0
+fi
+
+#
 # Build Linux kernel and make uImage
 #
 if [ "$1" = "evm" ]; then
