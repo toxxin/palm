@@ -17,8 +17,8 @@ sfdisk -D -H 255 -S 63 -C ${CYLINDERS} $DRIVE << EOF
 10,,,-
 EOF
 
-mkfs.vfat -F 32 -n "boot" ${DRIVE}p1
+mkfs.vfat -F 32 -n "boot" ${DRIVE}p1 > /dev/null 2>&1
 umount ${DRIVE}p1
-mkfs.ext4 -L "rootfs" ${DRIVE}p2
+mkfs.ext4 -L "rootfs" ${DRIVE}p2 > /dev/null 2>&1
 umount ${DRIVE}p2
 #mkfs.ext4 -L "START_HERE" ${DRIVE}3
