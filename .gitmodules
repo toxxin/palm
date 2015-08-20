@@ -12,4 +12,4 @@
 	url = ssh://github.com/toxxin/sgx_palm
 [submodule "app_palm"]
 	path = app_palm
-	url = git@github.com:toxxin/app_palm.git
+	url = ssh@github.com/toxxin/app_palm
