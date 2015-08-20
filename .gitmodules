@@ -10,3 +10,6 @@
 [submodule "sgx_palm"]
 	path = sgx_palm
 	url = ssh://github.com/toxxin/sgx_palm
+[submodule "app_palm"]
+	path = app_palm
+	url = git@github.com:toxxin/app_palm.git
