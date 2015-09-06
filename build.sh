@@ -43,6 +43,9 @@ fi
 if [ "$1" = "evm" ]; then
 	echo "############# Evm board! ##############"
 	DTB=am3517-evm.dtb
+elif [ "$1" = "omap2plus" ]; then
+	echo "########### Omap2plus board! ##########"
+	DTB=am3517-evm.dtb
 else
 	echo "########### Default board! ############"
 	DTB=nmv.dtb
