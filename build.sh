@@ -18,7 +18,7 @@ make -j8
 #
 # Create MLO for eMMC
 #
-if [ -f EMMC_raw_header.dat ]; then
+if [ -f EMMC_raw_header.dat ] && [ -f MLO ]; then
 	dd if=./EMMC_raw_header.dat of=./EMMC_MLO.tmp
 	dd if=./MLO of=./EMMC_MLO.tmp bs=512 seek=1 skip=1
 	mv ./EMMC_MLO.tmp EMMC_MLO
